@@ -1,5 +1,7 @@
 package _01_methods._1_houses;
 
+import java.awt.Color;
+
 import org.jointheleague.graphical.robot.Robot;
 
 /*
@@ -23,7 +25,7 @@ public class Houses {
 		
       for(int i=0;i<8;i++)  {
     	 
-    	  drawhouse("small");
+    	  drawhouse("small", Color.CYAN);
         
     	
       
@@ -34,7 +36,7 @@ public class Houses {
 	}
 	
 	
-	public void drawhouse(String size ) {
+	public void drawhouse(String size,  Color color ) {
     	int height;
 		if(size.equals("small")) {
     		height=60;
@@ -47,6 +49,7 @@ public class Houses {
 			
 		}
 	
+		
 		
 		rob.setPenColor(0,0,0);
 		rob.turn(270);
