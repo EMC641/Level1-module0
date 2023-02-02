@@ -9,6 +9,7 @@ int x=400;
 int y=300;
 int birdYVelocity = -10;
 int gravity = 1;
+int pipeX= 300;
     @Override
     public void settings() {
         size(800, 600);
@@ -31,7 +32,7 @@ int gravity = 1;
     	ellipse(gravity,birdYVelocity, 50, 50);
     	
     	fill(0, 200, 100);
-    	rect(300, 0, 50, 300);
+    	rect(pipeX, 0, 50, 200);
 
 
     }
