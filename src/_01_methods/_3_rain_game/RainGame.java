@@ -6,18 +6,18 @@ import processing.core.PImage;
 /*
  * Goal: Make a game where the user has to catch rain drops in a bucket!
  * 
- * In the setup() method:
+ * In the setup() method: done
  * 1. If you are using an image for the bucket, load it and resize it here.
  *    A bucket image, bucket.png, has been provided if you want to use it.
  *    bucket = loadImage("images/bucket.png");
  *    bucket.resize(100, 100);  // you can choose values other than 100, 100
  * 
  * In the draw() method:
- * 2. Set a background color
+ * 2. Set a background color done
  * 
- * 3. Draw a raindrop (ellipse) at the top of the screen
+ * 3. Draw a raindrop (ellipse) at the top of the screen done
  * 
- * 4. Make the rain fall down the screen.
+ * 4. Make the rain fall down the screen.  done
  *    Hint: make a variable for the raindrop's Y position and change it after
  *    you draw the raindrop.
  * 
@@ -30,7 +30,7 @@ import processing.core.PImage;
  * 6. Draw a bucket (rectangle or image) at the bottom of the screen.
  *    The bucket's width needs to be stored in the bucketWidth variable.
  * 
- * 7. Make the bucket move side-to-side with the mouse. Hint: use mouseX
+ * 7. Make the bucket move side-to-side with the mouse. Hint: use mouseX done
  * 
  * 8. When the rain drop has fallen to the bucket, call the checkCatch() method
  *    to see if the rain drop is in the bucket.
@@ -47,11 +47,12 @@ public class RainGame extends PApplet {
 
     int score = 0;
     int bucketWidth = 50;
-    int bucketHeight;
+    int bucketHeight =50;
     PImage bucket;
-    int y;
-    int x;
-
+    int y=50;
+    int x=230;
+    
+    
     // Sets the size of your canvas
     @Override
     public void settings() {
@@ -60,15 +61,40 @@ public class RainGame extends PApplet {
 
     @Override
     public void setup() {
-
+      bucket = loadImage("images/bucket.png");
+      bucket.resize(600, 600);
     }
 
     @Override
     public void draw() {
-
+    	background(300,300,300);
+       
+    	fill(0,200,200);
+    	rect(mouseX,550,75,bucketHeight);
+    	
+    	fill(0,0,200);
+    	ellipse(x, y++, 25, 25);
+    	
+    	if(y>600) {
+    		y=0;
+    	}
+    	
+    	fill(0,0,0);
+    	textSize(16);
+    	text("Score: " + score, 20,20);
+    	
+    	if(y==575) {
+    		checkCatch(x );
+    	}
+    	
     }
 
-    static public void main(String[] args) {
+ 
+		
+		
+	
+
+	static public void main(String[] args) {
         PApplet.main(RainGame.class.getName());
     }
     
