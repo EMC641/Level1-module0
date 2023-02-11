@@ -21,16 +21,23 @@ public class FinishLine {
 		//2. Call the crazyMove() method to move the robot
 		crazyMove();
 		//3. Call the getTotalDistance() and save what is returned into a variable
-		getTotalDistance();
+		totalDistance=getTotalDistance();
 		//4. Call the hasCrossedFinishLine() method and save what is returned into a variable
-		hasCrossedFinishLine();
+		boolean finish=false;
+	    finish=hasCrossedFinishLine();
 		//5. If the robot has crossed the finish line... 
-		
-				
+		if(finish) {
+			JOptionPane.showMessageDialog(null, "The robot finished and went " + getTotalDistance());
 			
+		}
+				
+		else {
+			JOptionPane.showMessageDialog(null, "The robot didn't finished but went "+ getTotalDistance());
+		}
 			//6. Use a pop up to say the robot finished and how far it went
+
 		
-		
+	
 		//7. Else use a pop up to say the robot did not finish and how far it went
 		
 	}

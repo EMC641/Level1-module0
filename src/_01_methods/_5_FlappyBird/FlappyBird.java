@@ -13,7 +13,8 @@ int pipeX= 800;
 int pipeGap=100;
 int upperPipeHeight = (int) random(100, 400);
 int lowerY = upperPipeHeight + pipeGap;
-
+boolean hasLost=false;
+int point=0;
     @Override
     public void settings() {
         size(800, 600);
@@ -30,9 +31,12 @@ int lowerY = upperPipeHeight + pipeGap;
     @Override
     public void draw() {
     	background(173, 216, 230);
+    
+    	fill(210,180,140);
+    	rect(0,500,800,100);
     	
     	fill(0,0,0);
-    	text("Score:", 40, 20);
+    	text("Score: " +point, 40, 20);
     	
     	fill(200, 0, 0);
     	ellipse(x,y, 50, 50);
@@ -46,12 +50,28 @@ int lowerY = upperPipeHeight + pipeGap;
     	lowerY = upperPipeHeight + pipeGap;
     	rect(pipeX--,lowerY, 50,700);
     	
-    	
+    	if(y==upperPipeHeight-lowerY) {
+    		point++;
+    	}
+
     	
     	  if(pipeX==-10) {
     	    	teleportPipes(); 
     	    	}
 
+    	  if(y>600) {
+    		  hasLost=true;    		  
+    		      	  }
+    	  
+    
+       if(intersectsPipes()) {
+    	  hasLost=true;
+       }
+       
+       if(hasLost==true) {
+     	  text("You lost",300,400);
+     	  
+       }
 
     } 
     public void teleportPipes() {
@@ -60,7 +80,7 @@ int lowerY = upperPipeHeight + pipeGap;
   upperPipeHeight = (int) random(100, 400);
     }
     boolean intersectsPipes() { 
-        if (x < upperPipeHeight && x > pipeX && x < (pipeX+50)){
+        if (y < upperPipeHeight && x > pipeX && x < (pipeX+50)){
            return true; }
        else if (y>lowerY && x > pipeX && x < (pipeX+50)) {
            return true; }
