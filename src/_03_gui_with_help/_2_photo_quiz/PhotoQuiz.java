@@ -38,7 +38,7 @@ public class PhotoQuiz {
 		// 6. ask a question that relates to the image
 		String iceCream = JOptionPane.showInputDialog(null, "Do you like ice cream?");
 		// 7. print "CORRECT" if the user gave the right answer
-		if(iceCream=="yes") {
+		if(iceCream.equals("yes")) {
 			System.out.println("Correct");
 		}
 		// 8. print "INCORRECT" if the answer is wrong
@@ -60,7 +60,7 @@ public class PhotoQuiz {
 		// 13. ask another question
 		String color = JOptionPane.showInputDialog(null, "What color is the sky when it is daytime?");
 		// 14+ check answer, say if correct or incorrect, etc.
-		if(color=="blue") {
+		if(color.equals("blue")) {
 			System.out.println("Correct");
 		}
 		else {
